@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import org.eclipse.persistence.annotations.CascadeOnDelete;
+import org.eclipse.persistence.annotations.ExistenceChecking;
+import org.eclipse.persistence.annotations.ExistenceType;
 
 /**
  *
@@ -32,19 +34,7 @@ public class ItemsSem implements Serializable {
     private Long item_id;
     private String item_name;
     private String item_prize;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @CascadeOnDelete
-    private List<PurchaseSem> purchases; 
 
-    @XmlTransient
-    public List<PurchaseSem> getPurchases() {
-        return purchases;
-    }
-
-    public void setPurchases(List<PurchaseSem> purchases) {
-        this.purchases = purchases;
-    }
-    
     public Long getItem_id() {
         return item_id;
     }

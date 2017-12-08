@@ -91,6 +91,7 @@ public class CreateUpdateEntities {
         result.setStyleName(ValoTheme.LABEL_FAILURE);
         result.setVisible(false);
         insert.addClickListener(e -> {
+            int bigCase = 0;
             result.setStyleName(ValoTheme.LABEL_FAILURE);
             result.setValue("");
             result.setVisible(true);
@@ -98,6 +99,7 @@ public class CreateUpdateEntities {
             if (itemNewSave == null){
                 result.setValue("Item Not Save. ");  
             }else{
+                bigCase += 1;
                 result.setStyleName(ValoTheme.LABEL_SUCCESS);
                 result.setValue("Item Save. ");
             }
@@ -105,6 +107,7 @@ public class CreateUpdateEntities {
             if (residenceNewSave == null){
                 result.setValue(result.getValue() + "Residence Not Save. ");  
             }else{
+                bigCase += 2;
                 result.setStyleName(ValoTheme.LABEL_SUCCESS);
                 result.setValue(result.getValue() +"Residence Save. ");
             }
@@ -112,6 +115,7 @@ public class CreateUpdateEntities {
             if (userNewSave == null){
                 result.setValue(result.getValue() + "User Not Save. ");  
             }else{
+                bigCase += 4;
                 result.setStyleName(ValoTheme.LABEL_SUCCESS);
                 result.setValue(result.getValue() +"User Save. ");
             }
@@ -119,10 +123,51 @@ public class CreateUpdateEntities {
             if (purchaseNewSave == null){
                 result.setValue(result.getValue() + "Purchase Not Save. ");  
             }else{
+                bigCase += 8;
                 result.setStyleName(ValoTheme.LABEL_SUCCESS);
                 result.setValue(result.getValue() +"Purchase Save. ");
             }
-            
+            switch(bigCase){
+                case 1:
+                    System.out.println("prdel1");
+                    itemClient.create_XML(itemNewSave);
+                    break;
+                case 2:
+                    System.out.println("prdel2");
+                    residenceClient.create_XML(residenceNewSave);
+                    break;
+                case 3:
+                    System.out.println("prdel3");
+                    itemClient.create_XML(itemNewSave);
+                    residenceClient.create_XML(residenceNewSave);
+                    break;
+                case 4:
+                case 6:
+                    System.out.println("prdel4");
+                    userClient.create_XML(userNewSave);
+                    break;
+                case 5:
+                case 7:
+                    System.out.println("prdel5");
+                    itemClient.create_XML(itemNewSave);
+                    userClient.create_XML(userNewSave);
+                    break;
+                case 10:
+                case 11:
+                    System.out.println("prdel6");
+                    residenceClient.create_XML(residenceNewSave);
+                    purchaseClient.create_XML(purchaseNewSave);
+                    break;
+                case 8:
+                case 9:
+                case 12:
+                case 13:
+                case 14:
+                case 15:
+                    System.out.println("prdel7");
+                    purchaseClient.create_XML(purchaseNewSave);
+                    break;
+            }
             
             mainUI.RefreshPrint();
         });
@@ -134,27 +179,25 @@ public class CreateUpdateEntities {
         String i_name = item_name.getValue();
         String i_prize = item_prize.getValue();
         if (i_id.length() > 0 && RemoveFindEntities.isNumeric(i_id) && i_name.length() == 0 && i_prize.length() == 0){
-             ItemsSem test = itemClient.find_JSON(ItemsSem.class, i_id);
+             ItemsSem test = itemClient.find_XML(ItemsSem.class, i_id);
              if (test == null){
                  return null;
              }else{
                  return test;
              }
         }else if (i_id.length() > 0 && RemoveFindEntities.isNumeric(i_id) && i_name.length() > 0 && i_prize.length() > 0 ){
-            ItemsSem test = itemClient.find_JSON(ItemsSem.class, i_id);
+            ItemsSem test = itemClient.find_XML(ItemsSem.class, i_id);
              if (test == null){
                  return null;
              }else{
                  test.setItem_prize(i_prize);
                  test.setItem_name(i_name);
-                 itemClient.edit_JSON(test, i_id);
                  return test;
              }
         }else if (i_id.length() == 0 && i_name.length() > 0 && i_prize.length() > 0){
             ItemsSem test = new ItemsSem();
             test.setItem_name(i_name);
             test.setItem_prize(i_prize);
-            itemClient.create_JSON(test);
             return test;
         }
         return null;
@@ -168,14 +211,14 @@ public class CreateUpdateEntities {
         String r_zicode = res_zipcode.getValue();;
         
         if (r_id.length() > 0 && RemoveFindEntities.isNumeric(r_id) && r_city.length() == 0 && r_street.length() == 0 && r_s_number.length() == 0 && r_zicode.length() == 0){
-             ResidenceSem test = residenceClient.find_JSON(ResidenceSem.class, r_id);
+             ResidenceSem test = residenceClient.find_XML(ResidenceSem.class, r_id);
              if (test == null){
                  return null;
              }else{
                  return test;
              }
         }else if (r_id.length() > 0 && RemoveFindEntities.isNumeric(r_id) && r_city.length() > 0 && r_street.length() > 0 && r_s_number.length() > 0 && r_zicode.length() > 0){
-            ResidenceSem test = residenceClient.find_JSON(ResidenceSem.class, r_id);
+            ResidenceSem test = residenceClient.find_XML(ResidenceSem.class, r_id);
              if (test == null){
                  return null;
              }else{
@@ -183,7 +226,6 @@ public class CreateUpdateEntities {
                  test.setStreet_number(r_s_number);
                  test.setCity(r_city);
                  test.setZip_code(r_zicode);
-                 residenceClient.edit_JSON(test, r_id);
                  return test;
              }
         }else if (r_id.length() == 0 && r_city.length() > 0 && r_street.length() > 0 && r_s_number.length() > 0 && r_zicode.length() > 0){
@@ -192,27 +234,25 @@ public class CreateUpdateEntities {
             test.setStreet_number(r_s_number);
             test.setCity(r_city);
             test.setZip_code(r_zicode);
-            residenceClient.create_JSON(test);
             return test;
         }
         return null;
       
     }
     private UsersSem CheckUsers(ResidenceSem residence){
-        if (residence == null)return null;
         String u_id = user_id.getValue();
         String u_first = user_firstname.getValue();
         String u_sur = user_surname.getValue();
         String u_per = user_personal_id.getValue();
          if (u_id.length() > 0 && RemoveFindEntities.isNumeric(u_id) && u_first.length() == 0 && u_sur.length() == 0 && u_per.length() == 0 ){
-             UsersSem test = residenceClient.find_JSON(UsersSem.class, u_id);
+             UsersSem test = userClient.find_XML(UsersSem.class, u_id);
              if (test == null){
                  return null;
              }else{
                  return test;
              }
-        }else if (u_id.length() > 0 && RemoveFindEntities.isNumeric(u_id) && u_first.length() > 0 && u_sur.length() > 0 && u_per.length() > 0){
-            UsersSem test = residenceClient.find_JSON(UsersSem.class, u_id);
+        }else if (u_id.length() > 0 && RemoveFindEntities.isNumeric(u_id) && u_first.length() > 0 && u_sur.length() > 0 && u_per.length() > 0 && residence != null){
+            UsersSem test = userClient.find_XML(UsersSem.class, u_id);
              if (test == null){
                  return null;
              }else{
@@ -220,51 +260,76 @@ public class CreateUpdateEntities {
                  test.setSurname(u_sur);
                  test.setPersonal_id_number(u_per);
                  test.setResidence(residence);
-                 userClient.edit_JSON(test, u_id);
                  return test;
              }
-        }else if (u_id.length() == 0 && u_first.length() > 0 && u_sur.length() > 0 && u_per.length() > 0){
+        }else if (u_id.length() == 0 && u_first.length() > 0 && u_sur.length() > 0 && u_per.length() > 0 && residence != null){
             UsersSem test = new UsersSem();
             test.setFirstname(u_first);
                  test.setSurname(u_sur);
                  test.setPersonal_id_number(u_per);
                  test.setResidence(residence);
-            userClient.create_JSON(test);
             return test;
         }
         return null;
     }
     private PurchaseSem CheckPurchase(UsersSem user, ItemsSem item){
-        if (user == null || item == null) return null;
+        
         String p_id = pur_id.getValue();
-        String p_date = pur_date.getValue();;
+        String p_date = pur_date.getValue();
+        if (p_id.length() > 0 && RemoveFindEntities.isNumeric(p_id) && p_date.length() == 0){
+             PurchaseSem test = purchaseClient.find_XML(PurchaseSem.class, p_id);
+             if (test == null){
+                 return null;
+             }else{
+                 return test;
+             }
+        }else if (p_id.length() > 0 && RemoveFindEntities.isNumeric(p_id) && p_date.length() > 0){
+            PurchaseSem test = purchaseClient.find_XML(PurchaseSem.class, p_id);
+             if (test == null){
+                 return null;
+             }else{
+                 test.setDate_purchase(p_date);
+                 if (item != null){
+                 test.setItem_id(item);}
+                 if (user != null){
+                     test.setUser_id(user);
+                 }
+                 return test;
+             }
+        }else if (p_id.length() == 0 && p_date.length() > 0 && user != null && item != null){
+            PurchaseSem test = new PurchaseSem();
+            test.setDate_purchase(p_date);
+            test.setItem_id(item);
+            test.setUser_id(user);
+            return test;
+        }
         return null;
         
     }
     
     public ItemsSem findItem (String id){
-        ItemsSem test = itemClient.find_JSON(ItemsSem.class, id);
+        ItemsSem test = itemClient.find_XML(ItemsSem.class, id);
         if (test == null){
                 return null;
         }
         return test;
     }
     public UsersSem findUser (String id){
-        UsersSem test = userClient.find_JSON(UsersSem.class, id);
+        UsersSem test = userClient.find_XML(UsersSem.class, id);
         if (test == null){
                 return null;
         }
         return test;
     }
     public ResidenceSem findResidence (String id){
-        ResidenceSem test = residenceClient.find_JSON(ResidenceSem.class, id);
+        ResidenceSem test = residenceClient.find_XML(ResidenceSem.class, id);
         if (test == null){
                 return null;
         }
         return test;
     }
     public PurchaseSem testPurchase (String id){
-        PurchaseSem test = purchaseClient.find_JSON(PurchaseSem.class, id);
+        PurchaseSem test = purchaseClient.find_XML(PurchaseSem.class, id);
         if (test == null)
                 return null;
         return test;

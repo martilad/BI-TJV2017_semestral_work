@@ -8,10 +8,16 @@ import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.shared.ui.ContentMode;
 import com.vaadin.ui.Alignment;
+import com.vaadin.ui.Button;
 import com.vaadin.ui.HorizontalLayout;
 import com.vaadin.ui.Label;
+import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.dto.ItemsSem;
+import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.dto.PurchaseSem;
+import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.dto.ResidenceSem;
+import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.dto.UsersSem;
 import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.services.ItemClient;
 import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.services.PurchaseClient;
 import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.services.ResidenceClient;
@@ -61,7 +67,7 @@ public class MyUI extends UI {
               
         
         
-       /*final TextField name = new TextField();
+       final TextField name = new TextField();
         name.setCaption("Type your name here:");
 
         Button button = new Button("Click Me");
@@ -71,21 +77,21 @@ public class MyUI extends UI {
             
             ItemsSem item = new ItemsSem();
             item.setItem_name("Test");
-            item.setItem_prize(20);
+            item.setItem_prize("20");
             itemClient.create_JSON(item);
             
             ResidenceSem residence = new ResidenceSem();
             residence.setCity("pravekov");
             residence.setStreet("jeskyne");
-            residence.setStreet_number(452);
-            residence.setZip_code(36301);
+            residence.setStreet_number("452");
+            residence.setZip_code("36301");
             residenceClient.create_JSON(residence);
             
             UsersSem user = new UsersSem();
             user.setFirstname("Lada");
             user.setSurname("Mart");
-            user.setPersonal_id_number(45244);
-            user.setPernament_residence(residence);
+            user.setPersonal_id_number("45244");
+            user.setResidence(residence);
             userClient.create_JSON(user);
             
             PurchaseSem purchase = new PurchaseSem();
@@ -103,11 +109,11 @@ public class MyUI extends UI {
             if (test == null){
                 System.out.println("TOto je b8je4n0 a bude se s tim dob5e pracovat");
             }
-            item211.setItem_prize(1255);
+            item211.setItem_prize("1255");
             itemClient.edit_JSON(item211, "211");
             RefreshPrint(); 
         });
-        layout.addComponents(name, button);*/
+        layout.addComponents(name, button);
         
         setContent(layout);
     }

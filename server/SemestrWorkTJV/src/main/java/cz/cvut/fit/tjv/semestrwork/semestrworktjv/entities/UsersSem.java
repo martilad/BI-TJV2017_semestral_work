@@ -6,18 +6,14 @@
 package cz.cvut.fit.tjv.semestrwork.semestrworktjv.entities;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 /**
  *
@@ -34,8 +30,8 @@ public class UsersSem implements Serializable {
     private String firstname;
     private String surname;
     private String personal_id_number;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @CascadeOnDelete
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "RESIDENCE_ID")
     private ResidenceSem residence;
 
     public Long getUsers_id() {
@@ -79,18 +75,7 @@ public class UsersSem implements Serializable {
     }
 
 
-    @XmlTransient
-    public List<PurchaseSem> getPurchases() {
-        return purchases;
-    }
-
-    public void setPurchases(List<PurchaseSem> purchases) {
-        this.purchases = purchases;
-    }
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @CascadeOnDelete
-    private List<PurchaseSem> purchases;
-
+  
 
 
     @Override

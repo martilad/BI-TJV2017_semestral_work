@@ -36,7 +36,7 @@ public class ItemsSemFacadeREST extends AbstractFacade<ItemsSem> {
         super(ItemsSem.class);
     }
 
-    @POST
+    @PUT
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void create(ItemsSem entity) {

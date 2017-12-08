@@ -6,17 +6,11 @@
 package cz.cvut.fit.tjv.semestrwork.semestrworktjv.entities;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 /**
  *
@@ -32,19 +26,7 @@ public class ItemsSem implements Serializable {
     private Long item_id;
     private String item_name;
     private String item_prize;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @CascadeOnDelete
-    private List<PurchaseSem> purchases; 
 
-    @XmlTransient
-    public List<PurchaseSem> getPurchases() {
-        return purchases;
-    }
-
-    public void setPurchases(List<PurchaseSem> purchases) {
-        this.purchases = purchases;
-    }
-    
     public Long getItem_id() {
         return item_id;
     }

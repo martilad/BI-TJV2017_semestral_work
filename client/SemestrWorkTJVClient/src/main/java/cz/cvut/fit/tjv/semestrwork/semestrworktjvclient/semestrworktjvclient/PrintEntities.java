@@ -57,10 +57,10 @@ public class PrintEntities {
         return "ID:" + item.getItem_id() + " Name:" +  item.getItem_name() + " Prize:" + item.getItem_prize();
     }
     public static String UserToString (UsersSem object){
-        return "ID:" + object.getUsers_id() + " Name:" + object.getFirstname() + " " + object.getSurname() + " Residence:" + object.getResidence().getResidence_id()+ " Presonal Id:" + object.getPersonal_id_number();
+        return "ID:" + object.getUsers_id() + " Name:" + object.getFirstname() + " " + object.getSurname() + " Residence:" + object.getResidence().getResidence_id()+ " Presonal_id:" + object.getPersonal_id_number();
     }
     public static String ResidenceToString (ResidenceSem item){
-        return "ID:" + item.getResidence_id() + " City:" +  item.getCity() + " Street:" + item.getStreet() + " Street Number:" + item.getStreet_number()+ " Zip code:" + item.getZip_code();
+        return "ID:" + item.getResidence_id() + " City:" +  item.getCity() + " Street:" + item.getStreet() + " Street_number:" + item.getStreet_number()+ " Zip_code:" + item.getZip_code();
     }
     public static String PurchaseToString (PurchaseSem item){
         return "ID: " + item.getPurchase_id() +" Date:" + item.getDate_purchase() +  " Item:" +  item.getItem_id().getItem_id() + " User:" + item.getUser_id().getUsers_id();

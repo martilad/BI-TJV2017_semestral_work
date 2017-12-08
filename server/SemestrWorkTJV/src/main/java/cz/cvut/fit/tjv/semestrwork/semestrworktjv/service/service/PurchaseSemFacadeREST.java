@@ -36,7 +36,7 @@ public class PurchaseSemFacadeREST extends AbstractFacade<PurchaseSem> {
         super(PurchaseSem.class);
     }
 
-    @POST
+    @PUT
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void create(PurchaseSem entity) {

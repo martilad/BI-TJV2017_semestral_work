@@ -129,9 +129,7 @@ public class RemoveFindEntities {
         if (test == null){
             return "Item not exists.";
         }
-        for (PurchaseSem purchase : test.getPurchases()) {
-            removePurchase(purchase.getPurchase_id().toString());
-        }
+      
         itemClient.remove(id);
         result.setStyleName(ValoTheme.LABEL_SUCCESS);
         return "Item " + id + " remove.";
@@ -141,9 +139,6 @@ public class RemoveFindEntities {
         if (test == null){
             return "User not exists.";
         }
-        for (PurchaseSem purchase : test.getPurchases()) {
-            removePurchase(purchase.getPurchase_id().toString());
-        }
         userClient.remove(id);
         result.setStyleName(ValoTheme.LABEL_SUCCESS);
         return "User " + id + " remove.";
@@ -152,9 +147,6 @@ public class RemoveFindEntities {
         ResidenceSem test = testResidence(id);
         if (test == null){
             return "Residence not exists.";
-        }
-        for (UsersSem user : test.getUsers()) {
-            removeUser(user.getUsers_id().toString());
         }
         residenceClient.remove(id);
         result.setStyleName(ValoTheme.LABEL_SUCCESS);

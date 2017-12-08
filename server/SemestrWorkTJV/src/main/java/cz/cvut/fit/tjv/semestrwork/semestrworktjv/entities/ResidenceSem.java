@@ -6,17 +6,11 @@
 package cz.cvut.fit.tjv.semestrwork.semestrworktjv.entities;
 
 import java.io.Serializable;
-import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 /**
  *
@@ -78,19 +72,9 @@ public class ResidenceSem implements Serializable {
 
     
 
-    @XmlTransient
-    public List<UsersSem> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<UsersSem> users) {
-        this.users = users;
-    }
+    
     private String zip_code;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @CascadeOnDelete
-    private List<UsersSem> users;
-
+   
 
     @Override
     public int hashCode() {

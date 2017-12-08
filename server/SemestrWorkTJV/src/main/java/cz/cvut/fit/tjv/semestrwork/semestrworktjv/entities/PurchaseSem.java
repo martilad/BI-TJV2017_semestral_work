@@ -8,13 +8,12 @@ package cz.cvut.fit.tjv.semestrwork.semestrworktjv.entities;
 import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
-import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 /**
  *
@@ -29,11 +28,11 @@ public class PurchaseSem implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long purchase_id;
     private String date_purchase;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-     @CascadeOnDelete
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "USER_ID")
     private UsersSem user_id;
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-     @CascadeOnDelete
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ITEM_ID")
     private ItemsSem item_id;
 
     public Long getPurchase_id() {

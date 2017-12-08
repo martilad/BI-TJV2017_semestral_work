@@ -17,6 +17,8 @@ import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 import org.eclipse.persistence.annotations.CascadeOnDelete;
+import org.eclipse.persistence.annotations.ExistenceChecking;
+import org.eclipse.persistence.annotations.ExistenceType;
 
 /**
  *
@@ -78,19 +80,9 @@ public class ResidenceSem implements Serializable {
 
     
 
-    @XmlTransient
-    public List<UsersSem> getUsers() {
-        return users;
-    }
-
-    public void setUsers(List<UsersSem> users) {
-        this.users = users;
-    }
+    
     private String zip_code;
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @CascadeOnDelete
-    private List<UsersSem> users;
-
+   
 
     @Override
     public int hashCode() {
