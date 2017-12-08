@@ -1,0 +1,14 @@
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/entities/ResidenceSem.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/service/service/ResidenceSemFacadeREST.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/dto/ResidenceDTO.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/entities/ItemsSem.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/service/service/AbstractFacade.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/entities/PurchaseSem.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/service/service/ApplicationConfig.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/service/service/PurchaseSemFacadeREST.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/dto/ItemsDTO.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/dto/PurchaseDTO.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/dto/UsersDTO.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/service/service/UsersSemFacadeREST.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/entities/UsersSem.java
+/home/dibik/TJV_semestral_work/server/SemestrWorkTJV/src/main/java/cz/cvut/fit/tjv/semestrwork/semestrworktjv/service/service/ItemsSemFacadeREST.java
