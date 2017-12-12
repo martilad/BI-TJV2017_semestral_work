@@ -129,32 +129,26 @@ public class CreateUpdateEntities {
             }
             switch(bigCase){
                 case 1:
-                    System.out.println("prdel1");
                     itemClient.create_XML(itemNewSave);
                     break;
                 case 2:
-                    System.out.println("prdel2");
                     residenceClient.create_XML(residenceNewSave);
                     break;
                 case 3:
-                    System.out.println("prdel3");
                     itemClient.create_XML(itemNewSave);
                     residenceClient.create_XML(residenceNewSave);
                     break;
                 case 4:
                 case 6:
-                    System.out.println("prdel4");
                     userClient.create_XML(userNewSave);
                     break;
                 case 5:
                 case 7:
-                    System.out.println("prdel5");
                     itemClient.create_XML(itemNewSave);
                     userClient.create_XML(userNewSave);
                     break;
                 case 10:
                 case 11:
-                    System.out.println("prdel6");
                     residenceClient.create_XML(residenceNewSave);
                     purchaseClient.create_XML(purchaseNewSave);
                     break;
@@ -164,7 +158,6 @@ public class CreateUpdateEntities {
                 case 13:
                 case 14:
                 case 15:
-                    System.out.println("prdel7");
                     purchaseClient.create_XML(purchaseNewSave);
                     break;
             }

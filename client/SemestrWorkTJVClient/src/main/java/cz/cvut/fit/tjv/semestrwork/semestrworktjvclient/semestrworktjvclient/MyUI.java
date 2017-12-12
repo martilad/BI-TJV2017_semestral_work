@@ -63,58 +63,7 @@ public class MyUI extends UI {
         userLabel.setCaption("Users:");
         residenceLabel.setCaption("Residence:");
         purchaseLabel.setCaption("Purchase:");
-        RefreshPrint();
-              
-        
-        
-      /* final TextField name = new TextField();
-        name.setCaption("Type your name here:");
-
-        Button button = new Button("Click Me");
-        button.addClickListener(e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"+ itemClient.countREST()));
-            
-            ItemsSem item = new ItemsSem();
-            item.setItem_name("Test");
-            item.setItem_prize("20");
-            itemClient.create_JSON(item);
-            
-            ResidenceSem residence = new ResidenceSem();
-            residence.setCity("pravekov");
-            residence.setStreet("jeskyne");
-            residence.setStreet_number("452");
-            residence.setZip_code("36301");
-            residenceClient.create_JSON(residence);
-            
-            UsersSem user = new UsersSem();
-            user.setFirstname("Lada");
-            user.setSurname("Mart");
-            user.setPersonal_id_number("45244");
-            user.setResidence(residence);
-            userClient.create_JSON(user);
-            
-            PurchaseSem purchase = new PurchaseSem();
-            purchase.setDate_purchase("15.3.2017");
-            purchase.setItem_id(item);
-            purchase.setUser_id(user);
-            purchaseClient.create_JSON(purchase);
-            
-            
-            
-            
-            
-            ItemsSem item211 = itemClient.find_JSON(ItemsSem.class, "211");
-            ItemsSem test = itemClient.find_JSON(ItemsSem.class, "214588");
-            if (test == null){
-                System.out.println("TOto je b8je4n0 a bude se s tim dob5e pracovat");
-            }
-            item211.setItem_prize("1255");
-            itemClient.edit_JSON(item211, "211");
-            RefreshPrint(); 
-        });
-        layout.addComponents(name, button);*/
-        
+        RefreshPrint();        
         setContent(layout);
     }
 

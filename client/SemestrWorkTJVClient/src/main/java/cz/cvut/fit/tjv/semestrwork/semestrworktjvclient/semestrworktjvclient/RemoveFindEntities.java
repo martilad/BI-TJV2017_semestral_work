@@ -14,13 +14,16 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
 import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.dto.ItemsSem;
+import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.dto.PurchaseDTO;
 import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.dto.PurchaseSem;
 import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.dto.ResidenceSem;
+import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.dto.UsersDTO;
 import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.dto.UsersSem;
 import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.services.ItemClient;
 import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.services.PurchaseClient;
 import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.services.ResidenceClient;
 import cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.services.UserClient;
+import java.util.Objects;
 
 /**
  *
@@ -138,6 +141,14 @@ public class RemoveFindEntities {
         if (test == null){
             return "User not exists.";
         }
+        
+        PurchaseDTO purchasedto = purchaseClient.findAllPurchases_JSON(PurchaseDTO.class);
+       
+        for (PurchaseSem purchase : purchasedto.getPurchases()) {
+            if (Objects.equals(purchase.getUser_id_sem().getUsers_id(), Long.parseLong(id))){
+                removePurchase(purchase.getPurchase_id().toString());
+            }
+        }
         userClient.remove(id);
         result.setStyleName(ValoTheme.LABEL_SUCCESS);
         return "User " + id + " remove.";
@@ -146,6 +157,12 @@ public class RemoveFindEntities {
         ResidenceSem test = testResidence(id);
         if (test == null){
             return "Residence not exists.";
+        }
+        UsersDTO userdto = userClient.findAllUsers_JSON(UsersDTO.class);
+        for (UsersSem user : userdto.getUsers()) {
+            if (Objects.equals(user.getResidence().getResidence_id(), Long.parseLong(id))){
+                removeUser(user.getUsers_id().toString());
+            }
         }
         residenceClient.remove(id);
         result.setStyleName(ValoTheme.LABEL_SUCCESS);

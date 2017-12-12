@@ -17,6 +17,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 /**
  *
@@ -36,7 +37,19 @@ public class UsersSem implements Serializable {
     @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "RESIDENCE_ID")
     private ResidenceSem residence;
-    
+    @OneToMany(mappedBy="user_id_sem", orphanRemoval=true, cascade = CascadeType.ALL)
+    @CascadeOnDelete
+    private List<PurchaseSem> purchases_sem;
+
+    public List<PurchaseSem> getPurchases_sem() {
+        return purchases_sem;
+    }
+
+    public void setPurchases_sem(List<PurchaseSem> purchases_sem) {
+        this.purchases_sem = purchases_sem;
+    }
+
+   
 
     public Long getUsers_id() {
         return users_id;
