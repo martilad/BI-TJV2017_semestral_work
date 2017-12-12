@@ -63,7 +63,7 @@ public class PrintEntities {
         return "ID:" + item.getResidence_id() + " City:" +  item.getCity() + " Street:" + item.getStreet() + " Street_number:" + item.getStreet_number()+ " Zip_code:" + item.getZip_code();
     }
     public static String PurchaseToString (PurchaseSem item){
-        return "ID: " + item.getPurchase_id() +" Date:" + item.getDate_purchase() +  " Item:" +  item.getItem_id().getItem_id() + " User:" + item.getUser_id().getUsers_id();
+        return "ID: " + item.getPurchase_id() +" Date:" + item.getDate_purchase() +  " Item:" +  item.getItem_id_sem().getItem_id() + " User:" + item.getUser_id_sem().getUsers_id();
     }
     
 }

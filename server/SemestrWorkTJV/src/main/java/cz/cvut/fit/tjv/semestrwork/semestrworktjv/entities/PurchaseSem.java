@@ -28,12 +28,12 @@ public class PurchaseSem implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long purchase_id;
     private String date_purchase;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "USER_ID")
-    private UsersSem user_id;
-    @ManyToOne(cascade = CascadeType.ALL)
+    private UsersSem user_id_sem;
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ITEM_ID")
-    private ItemsSem item_id;
+    private ItemsSem item_id_sem;
 
     public Long getPurchase_id() {
         return purchase_id;
@@ -51,21 +51,23 @@ public class PurchaseSem implements Serializable {
         this.date_purchase = date_purchase;
     }
 
-    public UsersSem getUser_id() {
-        return user_id;
+    public UsersSem getUser_id_sem() {
+        return user_id_sem;
     }
 
-    public void setUser_id(UsersSem user_id) {
-        this.user_id = user_id;
+    public void setUser_id_sem(UsersSem user_id_sem) {
+        this.user_id_sem = user_id_sem;
     }
 
-    public ItemsSem getItem_id() {
-        return item_id;
+    public ItemsSem getItem_id_sem() {
+        return item_id_sem;
     }
 
-    public void setItem_id(ItemsSem item_id) {
-        this.item_id = item_id;
+    public void setItem_id_sem(ItemsSem item_id_sem) {
+        this.item_id_sem = item_id_sem;
     }
+
+    
 
 
     @Override

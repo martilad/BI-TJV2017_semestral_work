@@ -7,7 +7,6 @@ package cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.dto;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,10 +14,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import org.eclipse.persistence.annotations.CascadeOnDelete;
-import org.eclipse.persistence.annotations.ExistenceChecking;
-import org.eclipse.persistence.annotations.ExistenceType;
 
 /**
  *
@@ -35,7 +30,7 @@ public class ResidenceSem implements Serializable {
     private String city;
     private String street;
     private String street_number;
-
+   
     public Long getResidence_id() {
         return residence_id;
     }

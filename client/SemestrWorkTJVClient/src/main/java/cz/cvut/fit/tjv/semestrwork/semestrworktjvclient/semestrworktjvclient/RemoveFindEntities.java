@@ -129,7 +129,6 @@ public class RemoveFindEntities {
         if (test == null){
             return "Item not exists.";
         }
-      
         itemClient.remove(id);
         result.setStyleName(ValoTheme.LABEL_SUCCESS);
         return "Item " + id + " remove.";

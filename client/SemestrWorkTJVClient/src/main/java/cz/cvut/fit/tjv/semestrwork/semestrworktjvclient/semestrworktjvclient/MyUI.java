@@ -67,7 +67,7 @@ public class MyUI extends UI {
               
         
         
-       final TextField name = new TextField();
+      /* final TextField name = new TextField();
         name.setCaption("Type your name here:");
 
         Button button = new Button("Click Me");
@@ -113,7 +113,7 @@ public class MyUI extends UI {
             itemClient.edit_JSON(item211, "211");
             RefreshPrint(); 
         });
-        layout.addComponents(name, button);
+        layout.addComponents(name, button);*/
         
         setContent(layout);
     }

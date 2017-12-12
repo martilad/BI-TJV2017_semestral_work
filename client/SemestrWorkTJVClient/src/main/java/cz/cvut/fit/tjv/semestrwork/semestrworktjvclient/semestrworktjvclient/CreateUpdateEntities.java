@@ -251,7 +251,7 @@ public class CreateUpdateEntities {
              }else{
                  return test;
              }
-        }else if (u_id.length() > 0 && RemoveFindEntities.isNumeric(u_id) && u_first.length() > 0 && u_sur.length() > 0 && u_per.length() > 0 && residence != null){
+        }else if (u_id.length() > 0 && RemoveFindEntities.isNumeric(u_id) && u_first.length() > 0 && u_sur.length() > 0 && u_per.length() > 0){
             UsersSem test = userClient.find_XML(UsersSem.class, u_id);
              if (test == null){
                  return null;
@@ -259,7 +259,9 @@ public class CreateUpdateEntities {
                  test.setFirstname(u_first);
                  test.setSurname(u_sur);
                  test.setPersonal_id_number(u_per);
-                 test.setResidence(residence);
+                 if (residence != null){
+                     test.setResidence(residence);
+                 }
                  return test;
              }
         }else if (u_id.length() == 0 && u_first.length() > 0 && u_sur.length() > 0 && u_per.length() > 0 && residence != null){
@@ -290,17 +292,17 @@ public class CreateUpdateEntities {
              }else{
                  test.setDate_purchase(p_date);
                  if (item != null){
-                 test.setItem_id(item);}
+                 test.setItem_id_sem(item);}
                  if (user != null){
-                     test.setUser_id(user);
+                     test.setUser_id_sem(user);
                  }
                  return test;
              }
         }else if (p_id.length() == 0 && p_date.length() > 0 && user != null && item != null){
             PurchaseSem test = new PurchaseSem();
             test.setDate_purchase(p_date);
-            test.setItem_id(item);
-            test.setUser_id(user);
+            test.setItem_id_sem(item);
+            test.setUser_id_sem(user);
             return test;
         }
         return null;

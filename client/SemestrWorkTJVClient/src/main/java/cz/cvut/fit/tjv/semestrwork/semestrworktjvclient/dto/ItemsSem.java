@@ -7,7 +7,6 @@ package cz.cvut.fit.tjv.semestrwork.semestrworktjvclient.dto;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,10 +14,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import org.eclipse.persistence.annotations.CascadeOnDelete;
-import org.eclipse.persistence.annotations.ExistenceChecking;
-import org.eclipse.persistence.annotations.ExistenceType;
 
 /**
  *
@@ -34,7 +29,8 @@ public class ItemsSem implements Serializable {
     private Long item_id;
     private String item_name;
     private String item_prize;
-
+   
+    
     public Long getItem_id() {
         return item_id;
     }
